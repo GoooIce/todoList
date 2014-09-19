@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="page-header">
+    <h1>Todo
+      <small>List 0.1.0</small>
+    </h1>
+
+    <div class="well">
+      <div class="row">
+        <div class="form-group">
+          <label for="needToDone">#</label>
+
+          <div class="input-group">
+            <span class="input-group-addon">
+              {{input type="checkbox" id="toggle-all" checked=allAreDone}}
+            </span>
+            {{input type="text"class="form-control" id="needToDone" placeholder="What needs to be done?" value=newTitle action="createTodo"}}
+          </div>
+
+          <p class="help-block">全选--------------</p>
+        </div>
+      </div>
+
+      {{outlet}}
+
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="row">
+      <div class="col-sm-3">
+        <blockquote class="blockquote-reverse">
+          <p class="text-center"><strong>{{remaining}}</strong> {{inflection}} left</p>
+        </blockquote>
+      </div>
+      <div class="col-sm-6">
+        <ul class="nav nav-pills nav-justified" role="tablist">
+          {{!--解决li.active与emberjs配合问题--}}
+          {{!--http://stackoverflow.com/questions/14412073/assigning-active-class-to-selected-list-item-in-emberjs--}}
+          {{#link-to "todos.index" activeClass="active" tagName="li" href=false}}<a {{bind-attr href="view.href"}}>All</a>{{/link-to}}
+          {{#link-to "todos.active" activeClass="active" tagName="li" href=false}}<a {{bind-attr href="view.href"}}>Active</a>{{/link-to}}
+          {{#link-to "todos.completed" activeClass="active" tagName="li" href=false}}<a {{bind-attr href="view.href"}}>Completed</a>{{/link-to}}
+        </ul>
+      </div>
+
+      {{#if hasCompleted}}
+        <div class="col-sm-3">
+          <button {{action "clearCompleted"}} type="button" class="btn btn-warning btn-block btn-lg">
+            Clear completed <span class="badge">{{completed}}</span>
+          </button>
+        </div>
+      {{/if}}
+
+    </div>
+  </footer>
+
+</div>
+</div>
+
+<p class="text-center">Double-click to edit a todo</p>
+
+<i class="fa fa-"></i>

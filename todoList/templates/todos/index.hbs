@@ -1,0 +1,27 @@
+<ul class="nav nav-stacked" role="tablist">
+  {{#each item in model itemController="todo"}}
+    <li>
+      <div class="input-group">
+              <span class="input-group-addon">
+                {{!--<input type="checkbox" name="somename" value="">--}}
+                {{input type="checkbox" checked=item.isCompleted}}
+              </span>
+        <!-- <input type="text" class="form-control" placeholder="" value="test"> -->
+        {{#if item.isEditing}}
+          {{edit-todo class="form-control" value=item.title focus-out="acceptChanges" insert-newline="acceptChanges"}}
+        {{else}}
+          <label {{action "editTodo" on="doubleClick"}} class="form-control">
+            {{#if item.isCompleted}}
+              <s>{{item.title}}</s>
+            {{else}}
+              {{item.title}}
+            {{/if}}
+          </label>
+        {{/if}}
+        <span class="input-group-btn"> <button {{action "removeTodo"}} class="btn btn-default" type="button">Del!</button></span>
+
+      </div>
+
+    </li>
+  {{/each}}
+</ul>

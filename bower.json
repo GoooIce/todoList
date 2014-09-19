@@ -1,0 +1,15 @@
+{
+  "name": "ember-starter",
+  "dependencies": {
+    "ember": "1.7.0",
+    "ember-data": "~1.0.0-beta.9",
+    "handlebars": "1.3.0",
+    "bootstrap": "3.2.0",
+    "jquery": "1.11.0",
+    "moment": "2.4.0",
+    "loader.js": "*",
+    "ember-load-initializers": "git://github.com/stefanpenner/ember-load-initializers.git#0.0.1",
+    "ember-resolver": "git://github.com/stefanpenner/ember-jj-abrams-resolver.git#181251821cf513bb58d3e192faa13245a816f75e"//,
+    //"ember-simple-auth": "~0.6.4"
+  }
+}
